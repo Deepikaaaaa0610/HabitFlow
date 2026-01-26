@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitFlow - Your Daily Ritual Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo-circle"></div>
+                <h1 class="title">HabitFlow</h1>
+            </div>
+            <p class="subtitle">Transform chaos into consistency 🔥</p>
+        </header>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="totalHabits">0</div>
+                <div class="stat-label">Total Habits</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value" id="completedToday">0</div>
+                <div class="stat-label">Completed Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-value" id="streakCount">0</div>
+                <div class="stat-label">Current Streak</div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-header">
+                <span>Daily Progress</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+
+        <section class="add-habit-section">
+            <h2 class="section-title">Create New Habit</h2>
+            <div class="habit-form">
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        id="habitName" 
+                        placeholder="What's your new habit?" 
+                        class="input-field"
+                    >
+                </div>
+                <div class="form-group">
+                    <select id="habitCategory" class="input-field">
+                        <option value="health">🏃 Health & Fitness</option>
+                        <option value="productivity">💼 Productivity</option>
+                        <option value="mindfulness">🧘 Mindfulness</option>
+                        <option value="learning">📚 Learning</option>
+                        <option value="creative">🎨 Creative</option>
+                    </select>
+                </div>
+                <button type="button" class="btn-add" id="addHabitBtn">
+                    <span class="btn-text">Add Habit</span>
+                    <span class="btn-icon">+</span>
+                </button>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+        </section>
+
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <section class="habits-section">
+            <h2 class="section-title">Your Habits</h2>
+            <div id="habitsContainer" class="habits-grid"></div>
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">📝</div>
+                <h3>No habits yet!</h3>
+                <p>Start building better routines by adding your first habit above.</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
