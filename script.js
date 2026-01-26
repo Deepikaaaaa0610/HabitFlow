@@ -1,14 +1,3 @@
-// ========================================
-// HABITFLOW - VANILLA JAVASCRIPT TRACKER
-// ========================================
-// This application demonstrates core DOM manipulation concepts:
-// - Dynamic element creation with createElement()
-// - Event delegation for efficient event handling
-// - Class manipulation for visual state changes
-// - LocalStorage for data persistence
-// - State management with vanilla JavaScript
-// ========================================
-
 // ===== STATE MANAGEMENT =====
 // Main habits array - central source of truth for all habit data
 let habits = [];
