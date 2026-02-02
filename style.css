@@ -1,4 +1,4 @@
-/* ===== CSS RESET & BASE STYLES ===== */
+/* ===== RESET & VARIABLES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -22,11 +22,10 @@ body {
     background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
     color: var(--white);
     min-height: 100vh;
-    position: relative;
     overflow-x: hidden;
 }
 
-/* ===== ANIMATED PARTICLES ===== */
+/* ===== PARTICLES ===== */
 .particles {
     position: fixed;
     width: 100%;
@@ -47,51 +46,15 @@ body {
     opacity: 0.3;
 }
 
-.particle:nth-child(1) {
-    left: 10%;
-    animation-delay: 0s;
-    animation-duration: 15s;
-}
-
-.particle:nth-child(2) {
-    left: 30%;
-    animation-delay: 2s;
-    animation-duration: 18s;
-}
-
-.particle:nth-child(3) {
-    left: 50%;
-    animation-delay: 4s;
-    animation-duration: 22s;
-}
-
-.particle:nth-child(4) {
-    left: 70%;
-    animation-delay: 6s;
-    animation-duration: 16s;
-}
-
-.particle:nth-child(5) {
-    left: 90%;
-    animation-delay: 8s;
-    animation-duration: 20s;
-}
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 15s; }
+.particle:nth-child(2) { left: 30%; animation-delay: 2s; animation-duration: 18s; }
+.particle:nth-child(3) { left: 50%; animation-delay: 4s; animation-duration: 22s; }
+.particle:nth-child(4) { left: 70%; animation-delay: 6s; animation-duration: 16s; }
+.particle:nth-child(5) { left: 90%; animation-delay: 8s; animation-duration: 20s; }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(100vh) scale(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.3;
-    }
-    90% {
-        opacity: 0.3;
-    }
-    50% {
-        transform: translateY(-20vh) scale(1);
-        opacity: 0.5;
-    }
+    0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
+    50% { transform: translateY(-20vh) scale(1); opacity: 0.5; }
 }
 
 /* ===== CONTAINER ===== */
@@ -111,14 +74,8 @@ body {
 }
 
 @keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .logo-container {
@@ -132,27 +89,21 @@ body {
 .logo-circle {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
     border-radius: 50%;
     animation: pulse 2s ease-in-out infinite;
     box-shadow: 0 0 30px var(--shadow);
 }
 
 @keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 30px var(--shadow);
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 50px var(--shadow);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .title {
     font-size: 3rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--white) 0%, var(--primary-red) 100%);
+    background: linear-gradient(135deg, var(--white), var(--primary-red));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -161,27 +112,15 @@ body {
 .subtitle {
     font-size: 1.2rem;
     color: #888;
-    font-weight: 300;
+    margin-top: 10px;
 }
 
-/* ===== STATS DASHBOARD ===== */
+/* ===== STATS ===== */
 .stats-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin: 30px 0;
-    animation: fadeInUp 1s ease-out 0.2s backwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .stat-card {
@@ -191,7 +130,6 @@ body {
     text-align: center;
     border: 2px solid transparent;
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
 .stat-card:hover {
@@ -217,13 +155,12 @@ body {
     font-size: 0.9rem;
 }
 
-/* ===== PROGRESS BAR ===== */
+/* ===== PROGRESS ===== */
 .progress-section {
     background: var(--medium-gray);
     padding: 25px;
     border-radius: 20px;
     margin: 30px 0;
-    animation: fadeInUp 1s ease-out 0.4s backwards;
 }
 
 .progress-header {
@@ -239,63 +176,33 @@ body {
     background: var(--light-gray);
     border-radius: 10px;
     overflow: hidden;
-    position: relative;
 }
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    background: linear-gradient(90deg, var(--primary-red), var(--dark-red));
     border-radius: 10px;
     width: 0%;
     transition: width 0.5s ease;
-    position: relative;
-    overflow: hidden;
 }
 
-.progress-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-/* ===== FORM SECTION ===== */
+/* ===== FORM ===== */
 .add-habit-section {
     background: var(--medium-gray);
     padding: 30px;
     border-radius: 20px;
     margin: 30px 0;
-    animation: fadeInUp 1s ease-out 0.6s backwards;
 }
 
 .section-title {
     font-size: 1.5rem;
     margin-bottom: 20px;
-    color: var(--white);
 }
 
 .habit-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
 }
 
 .input-field {
@@ -305,14 +212,13 @@ body {
     padding: 15px 20px;
     color: var(--white);
     font-size: 1rem;
-    transition: all 0.3s ease;
     outline: none;
+    transition: all 0.3s ease;
 }
 
 .input-field:focus {
     border-color: var(--primary-red);
     box-shadow: 0 0 20px var(--shadow);
-    transform: scale(1.02);
 }
 
 .input-field::placeholder {
@@ -320,7 +226,7 @@ body {
 }
 
 .btn-add {
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
     border: none;
     border-radius: 12px;
     padding: 15px 30px;
@@ -333,35 +239,11 @@ body {
     justify-content: center;
     gap: 10px;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-add::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.btn-add:hover::before {
-    width: 300px;
-    height: 300px;
 }
 
 .btn-add:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px var(--shadow);
-}
-
-.btn-add:active {
-    transform: translateY(-1px);
 }
 
 .btn-text, .btn-icon {
@@ -377,21 +259,13 @@ body {
     background: rgba(255, 8, 68, 0.1);
     border-radius: 8px;
     display: none;
-    animation: shake 0.5s;
 }
 
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    75% { transform: translateX(10px); }
-}
-
-/* ===== FILTER SECTION ===== */
+/* ===== FILTERS ===== */
 .filter-section {
     display: flex;
     gap: 10px;
     margin: 30px 0;
-    animation: fadeInUp 1s ease-out 0.8s backwards;
 }
 
 .filter-btn {
@@ -407,19 +281,16 @@ body {
 
 .filter-btn:hover {
     border-color: var(--primary-red);
-    transform: translateY(-2px);
 }
 
 .filter-btn.active {
     background: var(--primary-red);
     border-color: var(--primary-red);
-    box-shadow: 0 5px 20px var(--shadow);
 }
 
-/* ===== HABITS GRID ===== */
+/* ===== HABITS ===== */
 .habits-section {
     margin: 30px 0;
-    animation: fadeInUp 1s ease-out 1s backwards;
 }
 
 .habits-grid {
@@ -429,27 +300,18 @@ body {
     margin-top: 20px;
 }
 
-/* ===== HABIT CARD ===== */
 .habit-card {
     background: var(--medium-gray);
     border-radius: 20px;
     padding: 25px;
-    position: relative;
     border: 2px solid transparent;
     transition: all 0.3s ease;
     animation: slideIn 0.5s ease-out;
-    overflow: hidden;
 }
 
 @keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 .habit-card::before {
@@ -460,22 +322,16 @@ body {
     width: 100%;
     height: 4px;
     background: linear-gradient(90deg, var(--primary-red), var(--dark-red));
-    transition: height 0.3s ease;
 }
 
 .habit-card:hover {
     border-color: var(--primary-red);
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px);
     box-shadow: 0 15px 40px var(--shadow);
 }
 
-.habit-card:hover::before {
-    height: 6px;
-}
-
 .habit-card.completed {
-    opacity: 0.8;
-    background: linear-gradient(135deg, var(--medium-gray) 0%, var(--light-gray) 100%);
+    opacity: 0.7;
 }
 
 .habit-card.completed::before {
@@ -488,19 +344,17 @@ body {
     border-radius: 20px;
     background: var(--light-gray);
     display: inline-block;
+    margin-bottom: 10px;
 }
 
 .habit-name {
     font-size: 1.3rem;
     font-weight: 600;
     margin: 10px 0;
-    word-wrap: break-word;
-    transition: all 0.3s ease;
 }
 
 .habit-card.completed .habit-name {
     text-decoration: line-through;
-    opacity: 0.6;
     color: #888;
 }
 
@@ -534,8 +388,8 @@ body {
 }
 
 .btn-complete:hover {
-    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
     transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
 }
 
 .btn-delete {
@@ -545,7 +399,6 @@ body {
 
 .btn-delete:hover {
     background: var(--primary-red);
-    box-shadow: 0 5px 20px var(--shadow);
     transform: translateY(-2px);
 }
 
@@ -564,21 +417,11 @@ body {
 }
 
 @keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
-.empty-state h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--white);
-}
-
-/* ===== TOAST NOTIFICATION ===== */
+/* ===== TOAST ===== */
 .toast {
     position: fixed;
     bottom: -100px;
@@ -591,7 +434,6 @@ body {
     box-shadow: 0 10px 40px var(--shadow);
     z-index: 1000;
     transition: bottom 0.5s ease;
-    min-width: 300px;
     text-align: center;
 }
 
@@ -601,23 +443,8 @@ body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .title {
-        font-size: 2rem;
-    }
-
-    .habits-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stats-container {
-        grid-template-columns: 1fr;
-    }
-
-    .filter-section {
-        flex-wrap: wrap;
-    }
-
-    .container {
-        padding: 15px;
-    }
+    .title { font-size: 2rem; }
+    .habits-grid { grid-template-columns: 1fr; }
+    .stats-container { grid-template-columns: 1fr; }
+    .container { padding: 15px; }
 }
