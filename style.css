@@ -6,15 +6,15 @@
 }
 
 :root {
-    --primary-red: #b10933;
-    --dark-red: #b40131;
+    --primary-red: #ff0844;
+    --dark-red: #d00036;
     --black: #0a0a0a;
     --dark-gray: #1a1a1a;
     --medium-gray: #2a2a2a;
     --light-gray: #3a3a3a;
     --white: #ffffff;
-    --success: #01f885;
-    --shadow: rgba(232, 1, 58, 0.3);
+    --success: #00ff88;
+    --shadow: rgba(255, 8, 68, 0.3);
 }
 
 body {
@@ -24,6 +24,74 @@ body {
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+}
+
+/* ===== ANIMATED PARTICLES ===== */
+.particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    animation: float 20s infinite;
+    opacity: 0.3;
+}
+
+.particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 15s;
+}
+
+.particle:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+    animation-duration: 18s;
+}
+
+.particle:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+    animation-duration: 22s;
+}
+
+.particle:nth-child(4) {
+    left: 70%;
+    animation-delay: 6s;
+    animation-duration: 16s;
+}
+
+.particle:nth-child(5) {
+    left: 90%;
+    animation-delay: 8s;
+    animation-duration: 20s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20vh) scale(1);
+        opacity: 0.5;
+    }
 }
 
 /* ===== CONTAINER ===== */
@@ -92,7 +160,7 @@ body {
 
 .subtitle {
     font-size: 1.2rem;
-    color: #919191;
+    color: #888;
     font-weight: 300;
 }
 
@@ -142,22 +210,10 @@ body {
     font-weight: 700;
     color: var(--primary-red);
     margin-bottom: 5px;
-    animation: countUp 0.5s ease-out;
-}
-
-@keyframes countUp {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 
 .stat-label {
-    color: #807d7d;
+    color: #888;
     font-size: 0.9rem;
 }
 
@@ -426,29 +482,12 @@ body {
     background: linear-gradient(90deg, var(--success), #00cc70);
 }
 
-.habit-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
-
 .habit-category {
     font-size: 0.9rem;
     padding: 5px 12px;
     border-radius: 20px;
     background: var(--light-gray);
     display: inline-block;
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 .habit-name {
@@ -487,31 +526,11 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
 .btn-complete {
     background: var(--success);
     color: var(--black);
-}
-
-.btn-complete::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255,255,255,0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.5s, height 0.5s;
-}
-
-.btn-complete:hover::before {
-    width: 200px;
-    height: 200px;
 }
 
 .btn-complete:hover {
@@ -578,18 +597,6 @@ body {
 
 .toast.show {
     bottom: 30px;
-    animation: slideUp 0.5s ease;
-}
-
-@keyframes slideUp {
-    from {
-        bottom: -100px;
-        opacity: 0;
-    }
-    to {
-        bottom: 30px;
-        opacity: 1;
-    }
 }
 
 /* ===== RESPONSIVE ===== */
